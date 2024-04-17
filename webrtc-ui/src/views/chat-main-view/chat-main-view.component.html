@@ -1,0 +1,15 @@
+<div class="chat-window-container">
+    <div class="chat-window-header">
+        <span style="color:white">You are Logged in as</span>
+        &nbsp;&nbsp;
+        <select (change)="userChanged($event)">
+            <option>Select Login User</option>
+            <option *ngFor="let user of channels" [value]="user.name">{{ user.name }}</option>
+        </select>
+    </div>
+    <div class="chatbody-container">
+        <app-chat-channels-panel class="chat-channels-panel" [channelList]="visibleChannels" [myChannel]="myChannel"
+            [toChannel]="toChannel" (channelChange)="onChannelChange($event)"></app-chat-channels-panel>
+        <app-chat-message-window class="chat-window" [myChannel]="myChannel" [toChannel]="toChannel"></app-chat-message-window>
+    </div>
+</div>

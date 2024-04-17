@@ -1,0 +1,18 @@
+<div class="chat-window-container">
+    <div class="chat-window">
+        <div *ngFor="let message of currentChatMessages" [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
+            <div class="message-received" *ngIf="message.direction === 'in'">
+                <div>{{message.channelmessage}}</div>
+                <div class="message-time" style="text-align: -webkit-left">{{message.timestamp}}</div>
+            </div>
+            <div class="message-sent" *ngIf="message.direction === 'out'">
+                <div class="message-received-text">{{message.channelmessage}}</div>
+                <div class="message-time" style="text-align: -webkit-right">{{message.timestamp}}</div>
+            </div>
+        </div>
+    </div>
+    <div class="chat-text-box">
+        <input type="text" [(ngModel)]="newChatMessage" placeholder="Type your message..." class="message-input">
+        <button (click)="sendMessage()" class="send-button">Send</button>
+    </div>
+</div>
