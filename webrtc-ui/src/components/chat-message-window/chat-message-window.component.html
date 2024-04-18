@@ -1,18 +1,87 @@
 <div class="chat-window-container">
     <div class="chat-window">
-        <div *ngFor="let message of currentChatMessages" [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
-            <div class="message-received" *ngIf="message.direction === 'in'">
-                <div>{{message.channelmessage}}</div>
-                <div class="message-time" style="text-align: -webkit-left">{{message.timestamp}}</div>
+        <div *ngFor="let message of currentChatMessages">
+            <div *ngIf="message.type === 'text'"
+                [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
+                <div class="message-received" *ngIf="message.direction === 'in'">
+                    <div>{{message.channelmessage}}</div>
+                    <div class="message-time" style="text-align: -webkit-left">{{message.timestamp}}</div>
+                </div>
+                <div class="message-sent" *ngIf="message.direction === 'out'">
+                    <div class="message-received-text">{{message.channelmessage}}</div>
+                    <div class="message-time" style="text-align: -webkit-right">{{message.timestamp}}</div>
+                </div>
             </div>
-            <div class="message-sent" *ngIf="message.direction === 'out'">
-                <div class="message-received-text">{{message.channelmessage}}</div>
-                <div class="message-time" style="text-align: -webkit-right">{{message.timestamp}}</div>
+
+            <div *ngIf="message.type === 'video'"
+                [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
+                <div *ngIf="message.direction === 'in'">
+                    <video autoplay="false" class="send-video" src="{{message.channelmessage}}" type="video/webm"
+                        controls style="margin-bottom: 0px;"></video>
+                    <div class="message-time" style="text-align: -webkit-left;margin-bottom:10px">{{message.timestamp}}
+                    </div>
+                </div>
+                <div *ngIf="message.direction === 'out'">
+                    <video autoplay="false" class="send-video" src="{{message.channelmessage}}" type="video/webm"
+                        controls style="margin-bottom: 0px;"></video>
+                    <div class="message-time" style="text-align: -webkit-right;margin-bottom:10px">{{message.timestamp}}
+                    </div>
+                </div>
+            </div>
+
+            <div *ngIf="message.type === 'audio'" [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
+                <div *ngIf="message.direction === 'in'">
+                    <audio src="{{message.channelmessage}}" controls="controls" class="send-audio"></audio>
+                    <div class="message-time" style="text-align: -webkit-left;margin-bottom:10px">{{message.timestamp}}</div>
+                </div>
+                <div *ngIf="message.direction === 'out'">
+                    <audio src="{{message.channelmessage}}" controls="controls" class="send-audio"></audio>
+                    <div class="message-time" style="text-align: -webkit-right;margin-bottom:10px">{{message.timestamp}}</div>
+                </div>
             </div>
         </div>
     </div>
     <div class="chat-text-box">
-        <input type="text" [(ngModel)]="newChatMessage" placeholder="Type your message..." class="message-input">
-        <button (click)="sendMessage()" class="send-button">Send</button>
+        <div class="chat-box-container">
+            <div class="media-input-box">
+                <video id="sendVideoElement" autoplay="false" class="send-video-input" src="{{recordingURL}}"
+                    type="video/webm" [ngStyle]="{'display': isVideoMessage ? 'block' : 'none'}" controls
+                    autoplay></video>
+
+                <div class="chat-button-stop">
+                    <button (click)="handlVideoMessaging()" [ngStyle]="{'display': isVideoMessage ? 'block' : 'none'}"
+                        class="button-icon">
+                        <fa-icon [icon]="faStop"></fa-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="media-input-box">
+                <audio id="sendAudioElement" autoplay="false" class="send-audio-input" src="{{recordingURL}}"
+                    type="audio/webm" [ngStyle]="{'display': isAudioMessage ? 'block' : 'none'}" controls
+                    autoplay></audio>
+                <div class="chat-button-stop">
+                    <button (click)="handleAudioMessaging()" [ngStyle]="{'display': isAudioMessage ? 'block' : 'none'}"
+                        class="button-icon">
+                        <fa-icon [icon]="faStop"></fa-icon>
+                    </button>
+                </div>
+            </div>
+            <div>
+                <div class="chat-box">
+                    <input type="text" [(ngModel)]="newChatMessage" placeholder="Type your message..."
+                        class="message-input" />
+                    <div class="chat-buttons">
+                        <button (click)="handleAudioMessaging()" class="button-icon">
+                            <fa-icon [icon]="faMicrophone"></fa-icon>
+                        </button>
+                        <button (click)="handlVideoMessaging()" class="button-icon">
+                            <fa-icon [icon]="faVideo"></fa-icon>
+                        </button>
+                        <button (click)="sendMessage()" class="send-button">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

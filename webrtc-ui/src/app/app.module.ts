@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
 import { CommonModule } from '@angular/common'; // Import CommonModule
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from '../app-routing.module';
@@ -16,6 +18,7 @@ import { AppRoutingModule } from '../app-routing.module';
   imports: [
     BrowserModule,
     CommonModule, // Add CommonModule to the imports array
+    FontAwesomeModule,
     FormsModule,
     AppRoutingModule
   ],

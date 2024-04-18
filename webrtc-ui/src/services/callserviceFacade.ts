@@ -1,5 +1,6 @@
 import { ChangeDetectorRef } from '@angular/core';
 import CallService from './callservice';
+import { MsgData } from '../store/msg-data';
 
 
 class CallServiceFacade {
@@ -13,11 +14,11 @@ class CallServiceFacade {
     public from_user: string = '';
     public to_user: string = '';
 
-    private receiveChannelMessageCallback: (channelName: string, message: string) => void = () => { };
-    
-    constructor(private changeDetectorRef: ChangeDetectorRef, callback: (channelName: string, message: string) => void) {
+    private receiveChannelMessageCallback: (channelName: string, type: string, message: string) => void = () => { };
+
+    constructor(private changeDetectorRef: ChangeDetectorRef, callback: (channelName: string, type: string, message: string) => void) {
         this.cdr = changeDetectorRef;
-        
+
         if (this.callService === null || this.callService == undefined) {
             this.callService = new CallService(this.signalingURL);
             this.callService.setMessageReceivedCallBack(this.onRemoteMessageReceived.bind(this));
@@ -63,8 +64,56 @@ class CallServiceFacade {
             console.error('Call service not initialized');
             return false;
         }
-        
+
         return this.callService.isConnected();
+    }
+
+    public async startVideoMessaging(videoElement: HTMLVideoElement) {
+        if (this.callService === null || this.callService == undefined) {
+            console.error('Call service not initialized');
+            return;
+        }
+
+        await this.callService.startVideoMessaging(videoElement);
+        console.log(`----------------> video call setup successfully`);
+    }
+
+    public async startAudioMessaging(audioElement: HTMLAudioElement) {
+        if (this.callService === null || this.callService == undefined) {
+            console.error('Call service not initialized');
+            return;
+        }
+
+        await this.callService.startAudioMessaging(audioElement);
+        console.log(`----------------> video call setup successfully`);
+    }
+
+    public async stopVideo(): Promise<string> {
+        if (this.callService === null) {
+            console.error('Call service not initialized');
+            return '';
+        }
+
+        this.callService.stopRecording();
+
+        return await this.callService.getRecordedVideoURL('video/webm').then((videoUrl) => {
+            console.log(`----------------> Recorded video url: ${videoUrl}`);
+            return videoUrl;
+        });
+    }
+
+    public async stopAudio(): Promise<string> {
+        if (this.callService === null) {
+            console.error('Call service not initialized');
+            return '';
+        }
+
+        this.callService.stopRecording();
+
+        return await this.callService.getRecordedVideoURL('audio/webm').then((audioUrl) => {
+            console.log(`----------------> Recorded video url: ${audioUrl}`);
+            return audioUrl;
+        });
     }
 
     public getRemoteMessages(): Array<string> {
@@ -81,12 +130,34 @@ class CallServiceFacade {
         console.log(`----------------> Local message sent: ${message}`);
     }
 
-    onRemoteMessageReceived(event: MessageEvent) {
-        console.log(`--------------> Remote message received by local: ${event.data}`);
+    public async sendVideo(): Promise<string> {
+        if (this.callService === null) {
+            console.error('Call service not initialized');
+            return '';
+        }
 
-        this.remoteMessages.push(event.data);
+        return await this.callService.sendVideo();
+    }
+
+    public async sendAudio(): Promise<string> {
+        if (this.callService === null) {
+            console.error('Call service not initialized');
+            return '';
+        }
+
+        return await this.callService.sendAudio();
+    }
+
+    public isConnectionEstablished(): boolean {
+        return this.connected;
+    }
+
+    onRemoteMessageReceived(messageData: MsgData) {
+        console.log(`--------------> Remote message received by local: ${messageData.data}`);
+
+        this.remoteMessages.push(messageData.data);
         this.cdr.detectChanges();
-        this.receiveChannelMessageCallback(this.chatChannelId, event.data);
+        this.receiveChannelMessageCallback(this.chatChannelId, messageData.type, messageData.data);
 
         console.log(this.remoteMessages);
     }
