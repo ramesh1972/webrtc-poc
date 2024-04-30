@@ -5,7 +5,8 @@ import { MsgData } from '../store/msg-data';
 
 class CallServiceFacade {
     private callService: CallService | null = null;
-    private signalingURL: string = 'https://webrtc-signal.azurewebsites.net/';
+    //private signalingURL: string = 'http://localhost:3030/';
+    private signalingURL: string = 'http://localhost:3030/';
 
     private connected = false;
     private remoteMessages: Array<string> = new Array<string>();

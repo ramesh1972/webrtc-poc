@@ -1,0 +1,31 @@
+<div>
+  <div class="messageBox">
+    <label for="channelName">Channel Name:</label>
+    <input type="text" id="channelName" [(ngModel)]="channelName" placeholder="Channel name goes here." />
+  </div>
+
+  <div>
+    <button [disabled]="connected" (click)="connect()">Connect</button>
+    <button [disabled]="!connected" (click)="disconnect()">Disconnect</button>
+  </div>
+
+  <br />
+
+  <div class="messageBox">
+    <label for="localOutgoing">Enter message:</label>
+    <br />
+    <textarea class="message" id="localOutgoing" [(ngModel)]="newMessage"
+      placeholder="Local outgoing message goes here."></textarea>
+    <br />
+    <button [disabled]="!connected" (click)="_sendMessage()" id="sendLocal">Send Message</button>
+  </div>
+
+  <br />
+
+  <div>
+    <label for="remoteIncoming">Remote incoming messages:</label>
+    <!-- loop through remoteMessages and disaplay-->
+    <div class="message" id="remoteIncoming" *ngFor="let message of remoteMessages">{{message}}</div>
+
+  </div>
+</div>

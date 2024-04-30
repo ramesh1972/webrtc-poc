@@ -1,0 +1,30 @@
+<div>
+  <div>
+    <button [disabled]="connected" (click)="connect()">Connect</button>
+    <button [disabled]="!connected" (click)="disconnect()">Disconnect</button>
+  </div>
+
+  <div class="messageBox">
+    <label for="localOutgoing">Local outgoing message:</label>
+    <textarea class="message" id="localOutgoing" [(ngModel)]="newMessage" placeholder="Local outgoing message goes here."></textarea>
+    <button [disabled]="!connected" (click)="_sendMessage(_localChannel)" id="sendLocal">Send message from local</button>
+  </div>
+  <div class="messageBox">
+    <label for="localIncoming">Local incoming messages:</label>
+    <div class="messages" *ngFor="let message of localMessages">
+      {{ message }}
+    </div>
+  </div>
+
+  <div class="messageBox">
+    <label for="remoteOutgoing">Remote outgoing message:</label>
+    <textarea class="message" id="remoteOutgoing" [(ngModel)]="newMessage" placeholder="Remote outgoing message goes here."></textarea>
+    <button [disabled]="!connected" (click)="_sendMessage(_remoteChannel)" id="sendRemote">Send message from remote</button>
+  </div>
+  <div class="messageBox">
+    <label for="remoteIncoming">Remote incoming messages:</label>
+    <div class="messages" *ngFor="let message of remoteMessages">
+      {{ message }}
+    </div>
+  </div>
+</div>

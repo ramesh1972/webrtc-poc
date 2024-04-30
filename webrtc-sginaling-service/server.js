@@ -32,7 +32,7 @@ io.on('connection', (socket) => {
   });
 });
 
-const PORT = process.env.SIGPORT || 8080;
+const PORT =  3030;
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
