@@ -5,7 +5,7 @@ interface SignalingMessage {
     data: any;
 }
 
-class CallService {
+class WebRTCCallService {
     private socket: Socket;
     private connected: boolean = false;
     private pc: RTCPeerConnection | null;
@@ -59,11 +59,11 @@ class CallService {
         this.socket.emit('message', { type: 'ready' });
     }
 
-    public setChannelName(channelName: string) {
+    public SetChannelName(channelName: string) {
         this.channelName = channelName;
     }
 
-    public setMessageReceivedCallBack(callback: (event: MessageEvent) => void) {
+    public SetMessageReceivedCallBack(callback: (event: MessageEvent) => void) {
         this.receiveChannelMessageCallback = callback;
     }
 
@@ -121,7 +121,7 @@ class CallService {
         }
     }
 
-    public isConnected(): boolean {
+    public IsConnected(): boolean {
         return this.connected;
     }
 
@@ -152,7 +152,7 @@ class CallService {
         console.log('ICE candidate handled');
     }
 
-    public async startCall(channelName : string): Promise<void> {
+    public async StartCall(channelName : string): Promise<void> {
         await this.createPeerConnection();
 
         console.log('Creating data channel:' + channelName);
@@ -211,7 +211,7 @@ class CallService {
         }
     }
 
-    public async closeCall(): Promise<void> {
+    public async CloseCall(): Promise<void> {
         if (this.pc) {
             this.pc.close();
             this.pc = null;
@@ -222,4 +222,4 @@ class CallService {
     }
 }
 
-export default CallService;
+export default WebRTCCallService;

@@ -1,0 +1,66 @@
+/* channel-list.component.css */
+.channel-list-container {
+  display: flex;
+  flex-direction: row;
+  padding: 2px;
+  box-sizing: border-box;
+  vertical-align: top;
+}
+
+.channel-list-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px;
+  box-sizing: border-box;
+  vertical-align: top;
+  height: fit-content;
+}
+
+.hamburger-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 5px;
+  color: white;
+}
+
+.hamburger-line {
+  width: 25px;
+  height: 2px;
+  background: white;
+  margin-bottom: 4px;
+}
+
+.header-text {
+  font-size: 18px;
+  padding-right: 20px;
+  color: black;
+}
+
+.channel-list {
+  box-sizing: border-box;
+  height: 300px;
+  width: 200px;
+}
+
+.channel-list-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.channel-list-item {
+  background-color: rgba(0, 0, 255, 0.8);
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgba(0, 0, 255, 0.2);
+}
+
+.channel-list-item-label {
+  color: black;
+  font-size: 16px;
+}

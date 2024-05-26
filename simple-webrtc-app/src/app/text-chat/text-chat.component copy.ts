@@ -132,7 +132,7 @@ export class TextChatComponent implements OnInit {
     }; */
   }
 
-/*   sendMessage() {
+/*   SendMessage() {
     const message = this.newMessage.trim();
     if (message) {
       //this.chatMessages.push(message);

@@ -7,7 +7,7 @@ interface SignalingMessage {
   data: any;
 }
 
-export class CallService {
+export class WebRTCCallService {
   private socket: Socket;
   private peerConnection: RTCPeerConnection;
   //private remotePeerConnection: RTCPeerConnection | null = null;
@@ -70,7 +70,7 @@ export class CallService {
     }
   }
 
-  public isConnected(): boolean {
+  public IsConnected(): boolean {
     return this.connected;
   }
 
@@ -205,13 +205,13 @@ export class CallService {
   }
 
 
-  public async startCall(): Promise<boolean> {
+  public async StartCall(): Promise<boolean> {
     this.connected = true;
     return true;
 
   }
 
-  public setMessageReceivedCallBack(callback: (event: MessageEvent) => void) {
+  public SetMessageReceivedCallBack(callback: (event: MessageEvent) => void) {
     this.receiveChannelMessageCallback = callback;
   }
 

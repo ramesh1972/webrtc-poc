@@ -3,7 +3,7 @@ import { OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import  CallService  from '../../services/callservice';
+import  WebRTCCallService  from '../../services/callservice';
 
 //import { DataChannelService } from '../../services/data-channel-service';
 
@@ -15,7 +15,7 @@ import  CallService  from '../../services/callservice';
   styleUrl: './text-chat.component.css'
 })
 export class TextChatComponent implements OnInit {
-  callService: CallService | null = null;
+  callService: WebRTCCallService | null = null;
 
   connected = false;
   remoteMessages: Array<string> = new Array<string>();
@@ -25,9 +25,9 @@ export class TextChatComponent implements OnInit {
   constructor(private cdr: ChangeDetectorRef) {
     this.remoteMessages.push('Welcome to the chat room');
 
-    this.callService = new CallService('http://localhost:3010');
-    this.callService.setChannelName(this.channelName);
-    this.callService.setMessageReceivedCallBack(this.onRemoteMessageReceived.bind(this)); 
+    this.callService = new WebRTCCallService('http://localhost:3010');
+    this.callService.SetChannelName(this.channelName);
+    this.callService.SetMessageReceivedCallBack(this.onRemoteMessageReceived.bind(this)); 
   }
 
   ngOnInit(): void {
@@ -39,9 +39,9 @@ export class TextChatComponent implements OnInit {
       return;
     }
 
-    await this.callService.startCall(this.channelName);
+    await this.callService.StartCall(this.channelName);
 
-    if (this.callService.isConnected() === true)
+    if (this.callService.IsConnected() === true)
       this.connected = true;
     else {
       console.error('Failed to start call');
@@ -55,7 +55,7 @@ export class TextChatComponent implements OnInit {
       return;
     }
 
-    this.callService.closeCall();
+    this.callService.CloseCall();
     this.connected = false;
   }
 

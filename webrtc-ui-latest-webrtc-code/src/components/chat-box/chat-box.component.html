@@ -1,0 +1,9 @@
+<!-- chat-box.component.html -->
+<div class="chat-box-container">
+    <div class="chat-box">
+        <input type="text" [(ngModel)]="newChatMessage" placeholder="Type your message..." class="message-input" />
+        <div class="chat-buttons">
+            <button class="send-button" (click)="sendMessage()">Send</button>
+        </div>
+    </div>
+</div>

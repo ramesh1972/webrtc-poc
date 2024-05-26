@@ -1,0 +1,50 @@
+<!-- chat-window.component.html -->
+<div class="chat-window-container">
+  <div class="chat-window-header">
+    <div class="channel-list" [ngStyle]="{'z-index': 101}">
+      <app-channel-list channelListType="Users" headerText="Select a User" [selectedChannel]="myChannel"
+        [channelList]="channels" (OnChannelChange)="onChannelChange($event)">
+      </app-channel-list>
+    </div>
+    <div class="channel-list" [ngStyle]="{'z-index': 100}">
+      <app-channel-list channelListType="Channels" headerText="Select a Channel" [selectedChannel]="toChannel"
+        [channelList]="visibleChannels" (OnChannelChange)="onChannelChange($event)">
+      </app-channel-list>
+    </div>
+  </div>
+
+  <div class="chat-header">
+    <div class="chat-window-info-text">{{ chatWindowChatInfo }}</div>
+
+    <div class="chat-header-buttons">
+      <button (click)="handleAudioStreaming()" class="button-icon">
+        <fa-icon [icon]="faPhone"></fa-icon>
+      </button>
+      <button (click)="handleVideoStreaming()" class="button-icon">
+        <fa-icon [icon]="faVideo"></fa-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="streaming-window">
+    <app-streaming-window class="streaming-window"     
+      [isVideoVisible]="isVideoVisible" [isAudioVisible]="isAudioVisible" 
+      [dataChannelLabel]="currentDataChannel!" [webRTCHandler]="webRTCHandler">
+    </app-streaming-window>
+  </div>
+
+  <div class="chat-body-container">
+
+    <div class="chat-window">
+      <app-chat-messages-window [chatMessages]="currentChannelChatMessages" [currentDataChannel]="currentDataChannel"
+        [webRTCHandler]="webRTCHandler">
+      </app-chat-messages-window>
+    </div>
+
+    <div class="chat-box">
+      <app-chat-box [webRTCHandler]="webRTCHandler" [currentDataChannel]="currentDataChannel"
+        (sentMessage)="onSentMessage">
+      </app-chat-box>
+    </div>
+  </div>
+</div>

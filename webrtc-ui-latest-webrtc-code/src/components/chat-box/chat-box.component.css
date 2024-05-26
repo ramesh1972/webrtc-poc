@@ -1,0 +1,34 @@
+/* chat-box.component.css */
+.chat-box-container {
+  padding: 10px;
+  background-color: lightgray;
+}
+
+.chat-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.message-input {
+  flex: 1;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: white;
+}
+
+.chat-buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.send-button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}

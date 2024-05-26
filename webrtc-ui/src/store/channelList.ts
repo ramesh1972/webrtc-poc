@@ -1,7 +1,4 @@
-export interface Channel {
-    id: number;
-    name: string;
-}
+import { Channel, ChannelType } from '../services/models/Channel';
 
 const channelsJSON = [
     {
@@ -36,6 +33,7 @@ function getDummyChannels() : Channel[] {
     for (let i = 0; i < channelsJSON.length; i++) {
         channels.push({
             id: channelsJSON[i].id,
+            channelType: ChannelType.P2P,
             name: channelsJSON[i].name
         });
     }

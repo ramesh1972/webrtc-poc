@@ -1,0 +1,23 @@
+<!-- channel-list.component.html -->
+<div class="channel-list-container">
+  <div class="channel-list-header">
+    <div class="header-text">{{ headerText }}</div>
+    <button class="hamburger-button" (click)="toggleChannelsPanel()">
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+      <div class="hamburger-line"></div>
+    </button>
+  </div>
+
+  <div *ngIf="showChannelsPanel" class="channel-list">
+    <ul class="channel-list-ul">
+      <li *ngFor="let channel of channelList" [ngStyle]="{
+            'background-color':
+              selectedChannel && channel.name === selectedChannel.name
+                ? 'rgba(0, 0, 255, 0.8)'
+                : 'lightgray'
+          }" class="channel-list-item" (click)="channelChanged(channel)">
+        {{ channel.name }}
+      </li>
+    </ul>
+  </div>

@@ -27,7 +27,7 @@ export class DataChannelService {
         this.dataChannel = channel;
     }
 
-    public setMessageReceivedCallBack(callback: (event: MessageEvent) => void) {
+    public SetMessageReceivedCallBack(callback: (event: MessageEvent) => void) {
       console.log('Setting message received callback');
       if (this.dataChannel) {
         console.log('Setting message received callback sucess');

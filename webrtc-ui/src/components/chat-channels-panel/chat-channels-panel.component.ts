@@ -28,7 +28,6 @@ export class ChatChannelsPanelComponent {
     else {
       this.showChannelsPanel = false;
     }
-
   }
 
   @HostListener('window:resize', ['$event'])

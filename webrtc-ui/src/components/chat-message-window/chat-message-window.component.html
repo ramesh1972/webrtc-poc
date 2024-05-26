@@ -1,6 +1,43 @@
 <div class="chat-window-container">
+    <div class="chat-header">
+        <div class="chat-header-title">You are chatting with {{toChannel.name}}</div>
+        <div class="chat-header-buttons">
+            <button (click)="handleAudioStreaming()" class="button-icon">
+                <fa-icon [icon]="faMicrophone"></fa-icon>
+            </button>
+            <button (click)="handleVideoStreaming()" class="button-icon">
+                <fa-icon [icon]="faVideo"></fa-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- streaming windows -->
+    <div class="video-streaming-windows" [ngStyle]="{'display': isVideoStreamingOn === true ? 'flex' : 'none'}">
+        <div class="video-streaming-window">
+            <video autoplay="true" id="localVideo" class="video-streaming"></video>
+            <div class="video-streaming-name">You</div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="video-streaming-window">
+            <video autoplay="true" id="remoteVideo" class="video-streaming"></video>
+            <div class="video-streaming-name">{{toChannel.name}}</div>
+        </div>
+    </div>
+    <div class="audio-streaming-windows" [ngStyle]="{'display': isAudioStreamingOn === true ? 'flex' : 'none'}">
+        <div class="audio-streaming-window">
+            <audio controls autoplay="true" id="localAudio" class="audio-streaming"></audio>
+            <div class="audio-streaming-name">You</div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="audio-streaming-window">
+            <audio controls autoplay="true" id="remoteAudio" class="audio-streaming"></audio>
+            <div class="audio-streaming-name">{{toChannel.name}}</div>
+        </div>
+    </div>
+
     <div class="chat-window">
-        <div *ngFor="let message of currentChatMessages">
+        <!-- chat messages window -->
+        <div *ngFor="let message of chatMessages">
             <div *ngIf="message.type === 'text'"
                 [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
                 <div class="message-received" *ngIf="message.direction === 'in'">
@@ -29,58 +66,71 @@
                 </div>
             </div>
 
-            <div *ngIf="message.type === 'audio'" [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
+            <div *ngIf="message.type === 'audio'"
+                [ngStyle]="{'text-align': message.direction === 'in' ? '-webkit-left' : '-webkit-right'}">
                 <div *ngIf="message.direction === 'in'">
-                    <audio src="{{message.channelmessage}}" controls="controls" class="send-audio"></audio>
-                    <div class="message-time" style="text-align: -webkit-left;margin-bottom:10px">{{message.timestamp}}</div>
+                    <audio src="{{message.channelmessage}}" controls="controls" class="send-audio"
+                        autoplay="false"></audio>
+                    <div class="message-time" style="text-align: -webkit-left;margin-bottom:10px">{{message.timestamp}}
+                    </div>
                 </div>
                 <div *ngIf="message.direction === 'out'">
-                    <audio src="{{message.channelmessage}}" controls="controls" class="send-audio"></audio>
-                    <div class="message-time" style="text-align: -webkit-right;margin-bottom:10px">{{message.timestamp}}</div>
+                    <audio src="{{message.channelmessage}}" controls="controls" class="send-audio"
+                        autoplay="false"></audio>
+                    <div class="message-time" style="text-align: -webkit-right;margin-bottom:10px">{{message.timestamp}}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="chat-text-box">
-        <div class="chat-box-container">
-            <div class="media-input-box">
-                <video id="sendVideoElement" autoplay="false" class="send-video-input" src="{{recordingURL}}"
-                    type="video/webm" [ngStyle]="{'display': isVideoMessage ? 'block' : 'none'}" controls
-                    autoplay></video>
-
-                <div class="chat-button-stop">
-                    <button (click)="handlVideoMessaging()" [ngStyle]="{'display': isVideoMessage ? 'block' : 'none'}"
-                        class="button-icon">
-                        <fa-icon [icon]="faStop"></fa-icon>
-                    </button>
-                </div>
+    <div class="chat-box-container">
+        <div class="media-input-box" [ngStyle]="{'display': isImageCaptureVisible === true? 'flex' : 'none'}">
+            <div class="image-capture-window">
+                <video playsinline autoplay class="send-video-capture-input"></video>
+                <button class="image-capture-button" (click)="captureImage()">Take snapshot</button>
             </div>
+            <canvas class="image-capture-canvas"></canvas>
+        </div>
 
-            <div class="media-input-box">
-                <audio id="sendAudioElement" autoplay="false" class="send-audio-input" src="{{recordingURL}}"
-                    type="audio/webm" [ngStyle]="{'display': isAudioMessage ? 'block' : 'none'}" controls
-                    autoplay></audio>
-                <div class="chat-button-stop">
-                    <button (click)="handleAudioMessaging()" [ngStyle]="{'display': isAudioMessage ? 'block' : 'none'}"
-                        class="button-icon">
-                        <fa-icon [icon]="faStop"></fa-icon>
-                    </button>
-                </div>
+        <div class="media-input-box" [ngStyle]="{'display': isVideoInputVisible === true? 'flex' : 'none'}">
+            <video id="sendVideoElement" autoplay="false" class="send-video-input" src="{{recordingURL}}"
+                type="video/webm" controls
+                [ngStyle]="{'display': isVideoInputVisible === true? 'block' : 'none'}"></video>
+
+            <div class="chat-button-stop">
+                <button (click)="handlVideoMessaging()" class="button-stop-icon"
+                    [ngStyle]="{'display': isVideoInputVisible === true ? 'block' : 'none'}">
+                    <fa-icon [icon]="faStop"></fa-icon>
+                </button>
             </div>
-            <div>
-                <div class="chat-box">
-                    <input type="text" [(ngModel)]="newChatMessage" placeholder="Type your message..."
-                        class="message-input" />
-                    <div class="chat-buttons">
-                        <button (click)="handleAudioMessaging()" class="button-icon">
-                            <fa-icon [icon]="faMicrophone"></fa-icon>
-                        </button>
-                        <button (click)="handlVideoMessaging()" class="button-icon">
-                            <fa-icon [icon]="faVideo"></fa-icon>
-                        </button>
-                        <button (click)="sendMessage()" class="send-button">Send</button>
-                    </div>
-                </div>
+        </div>
+
+        <div class="media-input-box" [ngStyle]="{'display': isAudioInputVisible === true? 'flex' : 'none'}">
+            <audio id="sendAudioElement" autoplay="false" class="send-audio-input" src="{{recordingURL}}"
+                type="audio/webm" controls
+                [ngStyle]="{'display': isAudioInputVisible === true? 'block' : 'none'}"></audio>
+            <div class="chat-button-stop">
+                <button (click)="handleAudioMessaging()" class="button-stop-icon"
+                    [ngStyle]="{'display': isAudioInputVisible === true ? 'block' : 'none'}">
+                    <fa-icon [icon]="faStop"></fa-icon>
+                </button>
+            </div>
+        </div>
+
+        <div class="chat-box">
+            <input type="text" [(ngModel)]="newChatMessage" placeholder="Type your message..." class="message-input" />
+            <div class="chat-buttons">
+                <button (click)="handleImageCaptureMessaging()" class="button-icon">
+                    <fa-icon [icon]="faCamera"></fa-icon>
+                </button>
+
+                <button (click)="handleAudioMessaging()" class="button-icon">
+                    <fa-icon [icon]="faMicrophone"></fa-icon>
+                </button>
+                <button (click)="handlVideoMessaging()" class="button-icon">
+                    <fa-icon [icon]="faVideo"></fa-icon>
+                </button>
+                <button (click)="SendMessage()" class="send-button">Send</button>
             </div>
         </div>
     </div>
