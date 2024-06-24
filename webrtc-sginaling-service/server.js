@@ -105,7 +105,7 @@ function createHTMLTable() {
 
     let channelType = 'Not Known';
     if (message.dataChannelLabel.channelType != null && message.dataChannelLabel.channelType != null)
-      channelType = message.dataChannelLabel.dataChannelName;
+      channelType = message.dataChannelLabel.channelType;
       
       table += '<td>' + channelType  + '</td>';
 
