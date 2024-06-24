@@ -1,0 +1,60 @@
+{
+  "name": "webrtcrnpoc",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "lint": "eslint .",
+    "start": "react-native start",
+    "test": "jest",
+    "start_8081": "react-native start --port 8081",
+    "start_8082": "react-native start --port 8082",
+    "android_8081": "react-native run-android --deviceId emulator-5554 --port 8081",
+    "android_8082": "react-native run-android --deviceId emulator-5554 --port 8082"
+  },
+  "dependencies": {
+    "@react-native-community/cli": "^5.0.1",
+    "@react-native-community/cli-platform-android": "^13.6.8",
+    "@types/react-native": "0.73.0",
+    "react": "~16.8.0",
+    "react-native": "~0.60.0",
+    "react-native-typescript-transformer": "^1.2.13",
+    "react-native-webrtc": "^106.0.4",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.0",
+    "@babel/preset-env": "^7.20.0",
+    "@babel/runtime": "^7.20.0",
+    "@react-native/babel-preset": "0.74.83",
+    "@react-native/metro-config": "0.74.83",
+    "@react-native/typescript-config": "0.74.83",
+    "@types/react": "^18.3.3",
+    "@types/react-test-renderer": "^18.0.0",
+    "babel-jest": "^29.6.3",
+    "jest": "^29.6.3",
+    "react-redux": "^8.0.1",
+    "react-test-renderer": "18.2.0",
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.4.1",
+    "typescript": "5.0.4"
+  },
+  "resolutions": {
+    "@react-native-community/cli": "^7.0.0",
+    "@react-native-community/cli-config": "^7.0.0",
+    "@react-native-community/cli-debugger-ui": "^7.0.0",
+    "@react-native-community/cli-doctor": "^7.0.0",
+    "@react-native-community/cli-platform-android": "^7.0.0",
+    "@react-native-community/cli-platform-ios": "^7.0.0",
+    "@react-native-community/cli-server-api": "^7.0.0",
+    "@react-native-community/cli-tools": "^7.0.0",
+    "@react-native-community/cli-types": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

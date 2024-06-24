@@ -1,0 +1,199 @@
+        {
+            "type": "MESG",
+            "message_id": 2256111720,
+            "message": "slkdjlksjd",
+            "data": "",
+            "custom_type": "",
+            "file": {},
+            "created_at": 1716836475855,
+            "user": {
+                "user_id": "H+P4cVYtfAD+j3I9qSLrdg==",
+                "profile_url": "",
+                "require_auth_for_profile_image": false,
+                "nickname": "Kiaan K",
+                "metadata": {},
+                "role": "",
+                "is_active": true,
+                "is_blocked_by_me": false
+            },
+            "channel_url": "sendbird_group_channel_19003_ef305096a0db9a751cbffda5d82756ed39eb1bad",
+            "updated_at": 0,
+            "message_survival_seconds": -1,
+            "mentioned_users": [],
+            "mention_type": "users",
+            "silent": false,
+            "message_retention_hour": -1,
+            "channel_type": "group",
+            "translations": {},
+            "sorted_metaarray": [
+                {
+                    "key": "uniqueId",
+                    "value": [
+                        "c7887151-a4e9-4468-9306-a935c521864c"
+                    ]
+                }
+            ],
+            "is_removed": false,
+            "req_id": "rq-259c8c97-050b-4304-a96f-59ec4c6db83e",
+            "is_op_msg": false,
+            "reactions": [],
+            "message_events": {
+                "send_push_notification": "receivers",
+                "update_unread_count": true,
+                "update_mention_count": true,
+                "update_last_message": true
+            }
+        },
+        {
+            "type": "MESG",
+            "message_id": 2256112489,
+            "message": "sldkjkl",
+            "data": "",
+            "custom_type": "",
+            "file": {},
+            "created_at": 1716836518662,
+            "user": {
+                "user_id": "H+P4cVYtfAD+j3I9qSLrdg==",
+                "profile_url": "",
+                "require_auth_for_profile_image": false,
+                "nickname": "Kiaan K",
+                "metadata": {},
+                "role": "",
+                "is_active": true,
+                "is_blocked_by_me": false
+            },
+            "channel_url": "sendbird_group_channel_19003_ef305096a0db9a751cbffda5d82756ed39eb1bad",
+            "updated_at": 0,
+            "message_survival_seconds": -1,
+            "mentioned_users": [],
+            "mention_type": "users",
+            "silent": false,
+            "message_retention_hour": -1,
+            "channel_type": "group",
+            "translations": {},
+            "sorted_metaarray": [
+                {
+                    "key": "uniqueId",
+                    "value": [
+                        "305329df-3168-4280-8eba-0d2fd1d17118"
+                    ]
+                }
+            ],
+            "is_removed": false,
+            "req_id": "rq-d15a719f-13d2-4c02-8490-5304f0cbfc5e",
+            "is_op_msg": false,
+            "reactions": [],
+            "message_events": {
+                "send_push_notification": "receivers",
+                "update_unread_count": true,
+                "update_mention_count": true,
+                "update_last_message": true
+            }
+        },
+        {
+            "type": "MESG",
+            "message_id": 2256112632,
+            "message": "jlkj",
+            "data": "",
+            "custom_type": "",
+            "file": {},
+            "created_at": 1716836527055,
+            "user": {
+                "user_id": "H+P4cVYtfAD+j3I9qSLrdg==",
+                "profile_url": "",
+                "require_auth_for_profile_image": false,
+                "nickname": "Kiaan K",
+                "metadata": {},
+                "role": "",
+                "is_active": true,
+                "is_blocked_by_me": false
+            },
+            "channel_url": "sendbird_group_channel_19003_ef305096a0db9a751cbffda5d82756ed39eb1bad",
+            "updated_at": 0,
+            "message_survival_seconds": -1,
+            "mentioned_users": [],
+            "mention_type": "users",
+            "silent": false,
+            "message_retention_hour": -1,
+            "channel_type": "group",
+            "translations": {},
+            "sorted_metaarray": [
+                {
+                    "key": "uniqueId",
+                    "value": [
+                        "22de0073-2bb5-4814-a75f-154222d399b6"
+                    ]
+                }
+            ],
+            "is_removed": false,
+            "req_id": "rq-3bb4c776-4acc-4f79-842b-6c801362014a",
+            "is_op_msg": false,
+            "reactions": [],
+            "message_events": {
+                "send_push_notification": "receivers",
+                "update_unread_count": true,
+                "update_mention_count": true,
+                "update_last_message": true
+            }
+        },
+        {
+            "type": "FILE",
+            "message_id": 2256712768,
+            "file": {
+                "name": "1dARa.gif",
+                "url": "https:\/\/media.nexkul.com\/org_507\/Communication\/user_127862\/aa506ffb-0293-4677-bb5e-bf708c2205b7.gif",
+                "type": "image\/gif",
+                "data": "",
+                "size": 0
+            },
+            "custom_type": "",
+            "created_at": 1716876552479,
+            "user": {
+                "user_id": "sJOwpSlTA4GVMpXZ9RsTyg==",
+                "profile_url": "",
+                "require_auth_for_profile_image": false,
+                "nickname": "Himanshi Gupta",
+                "metadata": {},
+                "role": "",
+                "is_active": true,
+                "is_blocked_by_me": false
+            },
+            "channel_url": "sendbird_group_channel_19003_ef305096a0db9a751cbffda5d82756ed39eb1bad",
+            "thumbnails": [],
+            "require_auth": true,
+            "updated_at": 0,
+            "message_survival_seconds": -1,
+            "mentioned_users": [],
+            "mention_type": "users",
+            "silent": false,
+            "message_retention_hour": -1,
+            "files": [
+                {
+                    "url": "https:\/\/media.nexkul.com\/org_507\/Communication\/user_127862\/aa506ffb-0293-4677-bb5e-bf708c2205b7.gif",
+                    "file_name": "1dARa.gif",
+                    "file_size": 0,
+                    "file_type": "image\/gif",
+                    "thumbnails": [],
+                    "require_auth": true
+                }
+            ],
+            "channel_type": "group",
+            "sorted_metaarray": [
+                {
+                    "key": "uniqueId",
+                    "value": [
+                        "102d0c69-06d3-4444-911f-af671699875b"
+                    ]
+                }
+            ],
+            "is_removed": false,
+            "req_id": "rq-4ecd3151-76fb-4f88-add2-701f8772fc2c",
+            "is_op_msg": false,
+            "reactions": [],
+            "message_events": {
+                "send_push_notification": "receivers",
+                "update_unread_count": true,
+                "update_mention_count": true,
+                "update_last_message": true
+            }
+        }

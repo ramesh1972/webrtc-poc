@@ -1,0 +1,119 @@
+/* audio & video streaming */
+.streaming-windows {
+  display: flex;
+  flex-direction: row;
+  background-color: #d3d8e2;
+}
+
+.video-streaming-windows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  background-color: #d3d8e2;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.local-video-streaming-window {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.remote-video-streaming-window {
+  display: flex;
+  flex-direction: column;
+  width: 340px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.local-video-streaming {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  padding: 10px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+  width: 340px;
+  height: auto;
+}
+
+.remote-video-streaming {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  padding: 10px;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+  overflow-wrap: anywhere;
+  width: 340px;
+  height: auto;
+}
+
+.video-streaming-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.audio-streaming-windows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 10px;
+  background-color: gray;
+  background-color: #d3d8e2;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.audio-streaming-window {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.audio-streaming {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f3f4f6;
+  padding: 10px;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+  width: 200px;
+  height: 20px;
+}
+
+.audio-streaming-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin: 0;
+  padding-top: 5px;
+}
+
+.button-stop-icon {
+  background-color: #f3f4f6;
+  opacity: 0.5;
+  border: 1px solid rgba(245, 222, 179, 0.3);
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 16px;
+  margin-top: 10px;
+  margin-left: 25px;
+}
+
+.faIcon {
+    margin-left: 2px;
+    margin-top: 5px;
+}

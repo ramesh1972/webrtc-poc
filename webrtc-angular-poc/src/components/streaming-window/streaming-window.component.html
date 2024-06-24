@@ -1,0 +1,26 @@
+<div class="streaming-windows">
+    <div class="video-streaming-windows" [ngStyle]="{'display': isVideoVisible === true? 'flex' : 'none'}">
+        <div id="localVideoConatiner" name="localVideoConatiner" class="local-video-streaming-window">
+            <div class="video-streaming-name">You</div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div id="remoteVideoConatiner" name="remoteVideoConatiner" class="remote-video-streaming-window">
+            <div class="video-streaming-name">{{toChannelName}}</div>
+        </div>
+    </div>
+    <div class="audio-streaming-windows" [ngStyle]="{'display': isAudioVisible === true? 'flex' : 'none'}">
+        <div class="audio-streaming-window" class="local-audio-streaming-window">
+            <div class="audio-streaming-name">You</div>
+        </div>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div class="audio-streaming-window" class="remote-audio-streaming-window">
+            <div class="audio-streaming-name">{{toChannelName}}</div>
+        </div>
+    </div>
+    <div class="chat-button-stop">
+        <button (click)="StopStreaming()" class="button-stop-icon"
+            [ngStyle]="{'display': isVideoVisible || isAudioVisible === true ? 'flex' : 'none'}">
+            <fa-icon class="faIcon"[icon]="faStop"></fa-icon>
+        </button>
+    </div>
+</div>

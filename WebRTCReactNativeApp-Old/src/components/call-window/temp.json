@@ -1,0 +1,68 @@
+{
+    "callInfo": {
+        "callType": "audio",
+        "channelType": "group",
+        "channelUrl": "sendbird_group_channel_421314267_8947de027786c69327b783bc5f6fa28735d66bf4",
+        "event": "activeconnected",
+        "fromChannel": {
+            "id": "ZCFDx9+R6gc/Wl5NTPxe3Q==",
+            "name": "Ramesh V",
+            "type": "user",
+            "userpicture": null
+        },
+        "members": [
+            [o
+            ],
+            [o
+            ]
+        ],
+        "toChannel": {
+            "id": "tzstcyGc+SilJ8/GOaXqvw==",
+            "name": "Ramesh S",
+            "type": "user",
+            "userpicture": "https://media.nexkul.com/org_507/ProfilePicture/user_127906/Thumb/fcbab51a-4e0c-4f8a-a3c7-1006e7d3a24f.png"
+        }
+    },
+    "webRTCHandler": {
+        "audioStreamHandler": null,
+        "callServicesCollection": {
+            "callServiceFacades": [Map
+            ],
+            "receiveChannelMessageCallback": [Function bound onReceiveMessage
+            ],
+            "receiveSystemCommandCallback": [Function bound onReceiveSystemCommand
+            ]
+        },
+        "channelsAndMessages": Map {},
+        "currentUserId": null,
+        "receiveChannelMessageCallback": [Function bound onReceiveMessage
+        ],
+        "receiveSystemCommandCallback": [Function bound onReceiveSystemCommand
+        ],
+        "sendAudioMessageHandler": null,
+        "sendSystemCommandMessageHandler": null,
+        "sendTextMessageHandler": null,
+        "sendVideoMessageHandler": null,
+        "signalingServerUrl": "http://192.168.0.124:3030/",
+        "socket": {
+            "_callbacks": [Object
+            ],
+            "acks": [Object
+            ],
+            "connected": false,
+            "flags": [Object
+            ],
+            "ids": 0,
+            "io": [Manager
+            ],
+            "nsp": "/",
+            "receiveBuffer": [Array
+            ],
+            "sendBuffer": [Array
+            ],
+            "subs": [Array
+            ]
+        },
+        "videoStreamHandler": null
+    }
+}

@@ -1,0 +1,20 @@
+{
+    "callType": "video",
+    "channelType": undefined,
+    "channelUrl": undefined,
+    "event": "outgoing",
+    "toChannel": {
+        "id": "PLZBwtC66tG0BSHdwQkoNA==",
+        "name": "Ramesh v",
+        "type": "user",
+        "userpicture": "org_513/ProfilePicture/user_127936/Thumb/af773673-d30d-48f1-a005-2c49aec1264c.jpg"
+    },
+    "members": null,
+    "tenantId": 1,
+    "fromChannel": {
+        "id": "2s416A9+RlbTDI8vADx0/A==",
+        "name": "RSproject user",
+        "type": "user",
+        "userpicture": "org_513/ProfilePicture/user_127935/Thumb/edc77909-29f4-4277-a23f-809596846f1a.jpg"
+    }
+}

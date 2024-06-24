@@ -1,0 +1,41 @@
+{
+    "_reactTag": "d07295f4-ffbd-4ca6-bd9c-8db1e2cf71bd",
+    "_tracks": [
+        {
+            "_constraints": [Object
+            ],
+            "_enabled": true,
+            "_settings": [Object
+            ],
+            "id": "9fb09286-cbd3-44f3-ad4a-12d8f7cc7af9",
+            "kind": "video",
+            "label": "Video",
+            "muted": false,
+            "readyState": "live",
+            "remote": true
+        }
+    ],
+    "active": true,
+    "id": "901ddaa6-feb5-4857-917a-3c4b7a2f66aa"
+}
+
+{
+    "_reactTag": "901ddaa6-feb5-4857-917a-3c4b7a2f66aa",
+    "_tracks": [
+        {
+            "_constraints": [Object
+            ],
+            "_enabled": true,
+            "_settings": [Object
+            ],
+            "id": "9fb09286-cbd3-44f3-ad4a-12d8f7cc7af9",
+            "kind": "video",
+            "label": "9fb09286-cbd3-44f3-ad4a-12d8f7cc7af9",
+            "muted": false,
+            "readyState": "live",
+            "remote": false
+        }
+    ],
+    "active": true,
+    "id": "901ddaa6-feb5-4857-917a-3c4b7a2f66aa"
+}

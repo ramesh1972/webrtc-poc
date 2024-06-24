@@ -1,0 +1,22 @@
+{
+    "dataChannel": {
+        "dataChannelType": "p2p", /* Can be P2P or GROUP or BROADCAST */
+        "tenantId": 1,
+        "fromChannel": {
+            "id": 2,
+            "channelType": "user", /* Can be USER or GROUP */
+            "name": "Arunova Chakravarthy"
+        },
+        "toChannel": {
+            "id": 1,
+            "channelType": "user",
+            "name": "Ramesh Viswanathan"
+        },
+        "dataChannelName": "tenant-1-usr-1-usr-2"
+    },
+    "type": "text", /* Can be TEXT or JSON or IMAGE or VIDEO or AUDIO or BLOB or FILE or ANY format or SYSTEM COMMAND */
+    "direction": "in", /* Can be IN or OUT */
+    "channelmessage": "Hello World",
+    "userName": "",
+    "timestamp": "3:18:21 AM"
+}
